@@ -14,4 +14,5 @@ COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 CMD [ "nginx", "-g", "daemon off;" ]
 
-#   docker stop nginx && docker container prune && docker run -d -p 443:443 --name nginx nginx
+#   docker build -t nginx srcs/requirements/nginx
+#   docker stop nginx && docker run --rm -d -p 443:443 --name nginx nginx
