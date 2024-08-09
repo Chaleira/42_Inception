@@ -1,13 +1,6 @@
-sleep 10
-if ! [[ -d "/run/php" ]]; then
-    mkdir /run/php
-fi
-wp config create    --allow-root \
-                    --path='/var/www/wordpress' \
-                    --dbname=$SQL_DATABASE \
-                    --dbuser=$SQL_USER \
-                    --dbpass=$SQL_PASSWORD \
-                    --dbhost=mariadb:3306
-wp core install --allow-root
-wp user create
-/usr/sbin/php-fpm7.3 -F
+# wp core install --allow-root --url=${DOMAIN} --title="Inception" --admin_user=${BACKEND_ADMIN} --admin_password=${BACKEND_ADMIN_PASSWORD}
+# wp user create --allow-root ${BACKEND_USER} ${BACKEND_USER_EMAIL} --user_pass=${BACKEND_USER_PASS}
+
+# RUN mkdir -p /run/php
+
+# RUN touch /run/php/php7.4-fpm.pid
