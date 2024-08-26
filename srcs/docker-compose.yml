@@ -1,13 +1,16 @@
 services:
-  # nginx:
-  #   build: ./requirements/nginx
-  #   container_name: nginx
-  #   ports:
-  #     - "443:443"
-  #   depends_on:
-  #     - wordpress
-  #   networks:
-  #     - inception_network
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    ports:
+      - "443:443"
+    depends_on:
+      - wordpress
+    volumes:
+      - worpress_data:/var/www/html
+    networks:
+      - inception_network
+    restart: always
 
   wordpress:
     build: ./requirements/wordpress
@@ -35,7 +38,17 @@ services:
 
 volumes:
   mariadb_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${HOME}/data/mariadb
   worpress_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${HOME}/data/wordpress
 
 networks:
   inception_network:
