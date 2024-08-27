@@ -11,6 +11,3 @@ EXPOSE 3306
 CMD ["sh", "/setup.sh"]
 
 # ENTRYPOINT [ "tail", "-f", "/dev/null" ]
-
-#   docker build -t mariadb srcs/requirements/mariadb
-#   docker stop mariadb && docker run --rm -d -t --name mariadb mariadb
